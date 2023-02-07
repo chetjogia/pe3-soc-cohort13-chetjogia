@@ -1,4 +1,5 @@
 .search-div{
+    position: relative;
     padding: 0;
     margin: 0;
     display:flex;
@@ -28,11 +29,40 @@ border:none;
 
 
 .search-filters{
+    position: absolute;
+    padding:5%;
+    margin-top: 47%;
     display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5%;
+    width: 90%;
+    height: 180%;
+    outline: solid;
+    background-color: red;
+}
+
+.hidden{
+    display:none;
 }
 
 .search-button{
     background:none;
     border:none;
     cursor: pointer;
+}
+
+.date-container{
+    display:flex;
+    gap: 5%;
+}
+
+.time-frame{
+    display:flex;
+    gap: 5%;
+}
+
+.custom-date{
+    display: flex;
 }
