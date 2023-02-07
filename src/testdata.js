@@ -1,4 +1,4 @@
-export const data = {
+export const data = [{
   title:
     "Google's Pixel 7 and 7 Pros design gets revealed even more with fresh crisp renders",
   description:
@@ -13,4 +13,4 @@ export const data = {
     name: "PhoneArena",
     url: "https://www.phonearena.com",
   },
-};
+}];

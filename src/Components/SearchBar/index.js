@@ -1,25 +1,18 @@
 import "./index.css";
 import { CiSearch } from "react-icons/ci";
 import { countries } from "../../countrydata.js";
-import { useState } from "react";
 
-function SearchBar() {
-  const [filter, setFilter] = useState("hidden");
 
-  function showFilter() {
-    setFilter("search-filters");
-  }
+function SearchBar({getNewsData, filter, showFilter}) {
+ 
 
-  function handleSearch(){
-    setFilter("hidden");
-  }
 
   return (
     <div className="search-div">
       <div className="search-bar-and-button">
         <button onClick={showFilter}>Filter</button>
         <input type="text"></input>
-        <button onClick={handleSearch} className="search-button">
+        <button onClick={getNewsData} className="search-button">
           <CiSearch />
         </button>
       </div>
