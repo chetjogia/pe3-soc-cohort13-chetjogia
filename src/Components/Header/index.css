@@ -25,6 +25,12 @@
     padding:1%;
 }
 
+.logo{
+    display: flex;
+    height:100%;
+
+}
+
 
 .set-region{
     width: 100%;

@@ -1,7 +1,7 @@
 :root{
   --background-color:rgb(255, 255, 255);
   --white: white;
-  --strip-color: rgb(172, 172, 255);
+  --strip-color: #72caea;
 }
 
 body {
