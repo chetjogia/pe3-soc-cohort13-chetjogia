@@ -3,36 +3,103 @@ import Header from "../Header";
 import { data } from "../../testdata";
 import { useState, useEffect } from "react";
 import NewsContainer from "../NewsContainer";
+import SearchBar from "../SearchBar";
 
 function App() {
-  const [filter, setFilter] = useState("hidden");
-  const [newsData, setNewsData] = useState();
-
-  useEffect(() => {}, []);
-
-  function showFilter() {
-    setFilter("search-filters");
-  }
-
-  async function getNewsData() {
+  const [newsData, setNewsData] = useState([]);
+  const [language, setLanguage] = useState("")
+  
+  useEffect(() => {async function topNewsOnRender(){
+    let queryString = `https://gnews.io/api/v4/top-headlines?&category=general&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    console.log(queryString)
     const response = await fetch(
-      'https://gnews.io/api/v4/search?q="boxing"&in=title&apikey=1ef7f63af57bb2ddf8cd7522aa776eee'
+      queryString
     );
     const data = await response.json();
+      console.log(data)
+    setNewsData(data.articles)
+  }
+   topNewsOnRender()
+  }, []);
 
-    console.log(data);
-    setFilter("hidden");
+
+  function handleLanguage(chosenLanguage){
+    console.log(chosenLanguage)
+      setLanguage(chosenLanguage)
   }
 
+  async function getTopNews(category, language){
+    console.log("LANG", language)
+    let queryString = `https://gnews.io/api/v4/top-headlines?lang=${language}&category=${category}&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    console.log(queryString)
+    const response = await fetch(
+      queryString
+    );
+    const data = await response.json();
+      console.log(data)
+    setNewsData(data.articles)
+  }
+  
+
+  async function getNewsData(newsQuery) {
+    newsQuery.today = new Date().toJSON();
+    if(newsQuery.country === "newspaper"){
+      newsQuery.country = '""'
+    }
+
+    if (newsQuery.date === "24") {
+      let today = new Date();
+      let date = today.getDate();
+      let newDate = date - 1;
+      console.log("DATE", newDate);
+      today.setDate(newDate);
+      newsQuery.date = today.toJSON();
+    }
+    else if(newsQuery.date === "week"){
+      let today = new Date();
+      let date = today.getDate();
+      let newDate = date - 7;
+      console.log("DATE", newDate);
+      today.setDate(newDate);
+      newsQuery.date = today.toJSON();
+    }
+    else if(newsQuery.date === "month"){
+      let today = new Date();
+      let date = today.getDate();
+      let newDate = date - 30;
+      console.log("DATE", newDate);
+      today.setDate(newDate);
+      newsQuery.date = today.toJSON();
+    }
+    else if(newsQuery.date === "year"){
+      let today = new Date();
+      let date = today.getDate();
+      let newDate = date - 365;
+      console.log("DATE", newDate);
+      today.setDate(newDate);
+      newsQuery.date = today.toJSON();
+    }
+    else if(newsQuery.date === ""){
+      newsQuery.date = ""
+      newsQuery.today = ""
+    }
+    let queryString = `https://gnews.io/api/v4/search?q=${newsQuery.search}&sortby=${newsQuery.sortby}&country=${newsQuery.country}&to="${newsQuery.today}"&from="${newsQuery.date}"&lang=${language}&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    console.log("QUERY STRING", queryString)
+    console.log(newsQuery);
+     const response = await fetch(
+      queryString
+    );
+    const data = await response.json();
+      console.log(data)
+
+    setNewsData(data.articles)
+  }
 
   return (
     <div className="App">
-      <Header
-        getNewsData={getNewsData}
-        filter={filter}
-        showFilter={showFilter}
-      />
-      <NewsContainer />
+      <Header getNewsData={getNewsData} getTopNews={getTopNews} handleLanguage={handleLanguage} />
+      <SearchBar getNewsData={getNewsData} />
+      <NewsContainer  newsData={newsData} />
     </div>
   );
 }
