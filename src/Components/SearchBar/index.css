@@ -1,0 +1,118 @@
+.search-div {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 1%;
+}
+
+.search-bar-and-button {
+  display: flex;
+  width: 60%;
+  border: solid;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 30%;
+  padding: 1px;
+  background-color: var(--white);
+}
+
+.search-bar-and-button > input {
+  width: 100%;
+  border: none;
+  font-size: 1.5rem;
+  padding: 1%;
+}
+
+.search-bar-and-button>input:focus{
+    outline:none;
+}
+
+.search-filters {
+  padding-left: 5%;
+  padding-right: 5%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7%;
+  width: 90%;
+  flex-wrap: wrap;
+  height: 25%;
+}
+
+.sort-container {
+  display: flex;
+  gap: 3%;
+  height: 100%;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+}
+.sort-container > select {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.country {
+  display: flex;
+  gap: 3%;
+  height: 100%;
+  width: 21%;
+  align-items: center;
+  justify-content: center;
+}
+
+.country > select {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.search-button {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  align-self: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+}
+
+.date-container {
+  display: flex;
+  gap: 3%;
+}
+
+.time-frame {
+  display: flex;
+  gap: 3%;
+  height: 100%;
+  width: 15%;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-frame > select {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.custom-date {
+  display: flex;
+}
