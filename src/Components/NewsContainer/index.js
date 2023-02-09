@@ -1,4 +1,4 @@
-import { data } from "../../testdata";
+
 import './index.css'
 import NewsCard from "../NewsCard";
 
