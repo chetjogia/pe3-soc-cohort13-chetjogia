@@ -1,6 +1,6 @@
 
-# Percayso Programming Exercise 3 - Chetan Jogia
-# Deployed at: https://chet-jogia-percayso-inform.netlify.app
+## Percayso Programming Exercise 3 - Chetan Jogia
+## Deployed at: https://chet-jogia-percayso-inform.netlify.app
 
 Running Application
 
