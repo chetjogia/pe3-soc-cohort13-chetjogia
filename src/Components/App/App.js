@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import NewsContainer from "../NewsContainer";
 import SearchBar from "../SearchBar";
 
+
 function App() {
   const [newsData, setNewsData] = useState([]);
   const [language, setLanguage] = useState("")
   
   useEffect(() => {async function topNewsOnRender(){
-    let queryString = `https://gnews.io/api/v4/top-headlines?&category=general&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    let queryString = `https://gnews.io/api/v4/top-headlines?&category=general&apikey=${process.env.REACT_APP_API_KEY}`
     console.log(queryString)
     const response = await fetch(
       queryString
@@ -21,7 +22,7 @@ function App() {
   }
    topNewsOnRender()
   }, []);
-
+  console.log(process.env.API_KEY)
 
   function handleLanguage(chosenLanguage){
     console.log(chosenLanguage)
@@ -30,7 +31,7 @@ function App() {
 
   async function getTopNews(category, language){
     console.log("LANG", language)
-    let queryString = `https://gnews.io/api/v4/top-headlines?lang=${language}&category=${category}&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    let queryString = `https://gnews.io/api/v4/top-headlines?lang=${language}&category=${category}&apikey=${process.env.REACT_APP_API_KEY}`
     console.log(queryString)
     const response = await fetch(
       queryString
@@ -83,7 +84,7 @@ function App() {
       newsQuery.date = ""
       newsQuery.today = ""
     }
-    let queryString = `https://gnews.io/api/v4/search?q=${newsQuery.search}&sortby=${newsQuery.sortby}&country=${newsQuery.country}&to="${newsQuery.today}"&from="${newsQuery.date}"&lang=${language}&apikey=4b80d3920854e57a1c7a1db64aaa3d20`
+    let queryString = `https://gnews.io/api/v4/search?q=${newsQuery.search}&sortby=${newsQuery.sortby}&country=${newsQuery.country}&to="${newsQuery.today}"&from="${newsQuery.date}"&lang=${language}&apikey=${process.env.REACT_APP_API_KEY}`
     console.log("QUERY STRING", queryString)
     console.log(newsQuery);
      const response = await fetch(

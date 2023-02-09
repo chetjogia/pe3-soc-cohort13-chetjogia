@@ -1,28 +1,26 @@
-import SearchBar from "../SearchBar";
 import "./index.css";
 import { useRef } from "react";
 import { languages } from "../../countrydata";
 import logo from "../../percaysologo.png";
-function Header({ getNewsData, handleLanguage, getTopNews }) {
+function Header({ handleLanguage, getTopNews }) {
   const language = useRef("");
 
   return (
     <div className="top-container">
       <div className="header-container">
-        {/*   <h1 className="app-title">Percayso Inform News</h1> */}
         <div className="logo">
           <img src={logo} alt="logo"/>
         </div>
         <nav className="nav-bar">
           <div className="set-region">
-            <label>Set Region/Language:</label>
-            <select
+            <label htmlFor="language">Set Region/Language:</label>
+            <select id="language"
               ref={language}
               onChange={() => handleLanguage(language.current.value)}
             >
               <option value="">All</option>
               {languages.map((element) => (
-                <option value={element[1]}>{element[0]}</option>
+                <option key={element[1]} value={element[1]}>{element[0]}</option>
               ))}
             </select>
           </div>
