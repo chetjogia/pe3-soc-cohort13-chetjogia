@@ -54,7 +54,7 @@
 .full {
   display: flex;
   align-items: baseline;
-  justify-content: end;
+  justify-content: flex-end;
   flex-direction: column;
   font-size: 0.8rem;
   height: 23%;
