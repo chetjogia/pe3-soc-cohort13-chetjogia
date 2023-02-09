@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "../Header";
-import { data } from "../../testdata";
 import { useState, useEffect } from "react";
 import NewsContainer from "../NewsContainer";
 import SearchBar from "../SearchBar";
