@@ -1,12 +1,12 @@
 .news-card {
   display: flex;
   height: 210px;
-  width: 60%;
+  width: 65%;
   gap: 2%;
   padding: 5px;
   background-color: var(--white);
   border-radius: 5px;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -44,8 +44,7 @@
 .full {
   padding: 3px;
   margin: 0;
-
-  height: 40%;
+  height: 35%;
   overflow: hidden;
 }
 
@@ -61,6 +60,7 @@
   overflow: hidden;
   flex-wrap: nowrap;
   text-overflow: ellipsis;
+
 }
 
 .published {
